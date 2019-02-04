@@ -9,7 +9,7 @@ import random
 
 import jwt
 from thrift import TSerialization
-from thrift.protocol.TBinaryProtocol import TBinaryProtocolAcceleratedFactory
+from thrift.protocol.TBinaryProtocol import TBinaryProtocolFactory
 
 from .integration.wrapped_context import WrappedRequestContext
 from ._utils import warn_deprecated, cached_property
@@ -537,7 +537,7 @@ class EdgeRequestContext(object):
 
     """
 
-    _HEADER_PROTOCOL_FACTORY = TBinaryProtocolAcceleratedFactory()
+    _HEADER_PROTOCOL_FACTORY = TBinaryProtocolFactory()
 
     def __init__(self, authn_token_validator, header):
         self._authn_token_validator = authn_token_validator
